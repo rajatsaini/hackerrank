@@ -1,0 +1,33 @@
+//Mathematics/Possible_paths Using gcd to find if path exists.
+//(because (a+b,b), (a,a+b), (a-b,b), or (a,a-b) will have the same gcd).
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    
+    public static int gcd(int a, int b){
+        if(a<b)
+        return gcd(b,a);
+        if(b==0)
+        return a;
+        else
+        return gcd(b,a%b);
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        for(int i=0;i<n;i++){
+            int x1 = s.nextInt();int y1 = s.nextInt();
+            int x2 = s.nextInt();//int d = max(a,b);
+            int y2 = s.nextInt();
+            System.out.println(gcd(x1,y1)==gcd(x2,y2)?"YES":"NO");
+        }
+    }
+}
