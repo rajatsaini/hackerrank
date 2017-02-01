@@ -1,0 +1,30 @@
+# Time Conversion Problem
+# Cleanest program I have written so far.
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String time = in.next();
+        
+        String half = time.substring(8,10);
+        int hour = Integer.parseInt(time.substring(0,2));
+        int min = Integer.parseInt(time.substring(3,5));
+        int sec = Integer.parseInt(time.substring(6,8));
+        
+        if(half.equals("AM")){
+            System.out.printf("%02d:%02d:%02d",hour%12,min,sec);
+        }
+        
+        else if(half.equals("PM")) 
+             System.out.printf("%02d:%02d:%02d",hour%12+12,min,sec);
+       
+    }
+}
